@@ -1,0 +1,103 @@
+<div id="mainContainer">
+  <form (ngSubmit)="onSubmit()" #opinionForm="ngForm" id="from">
+    <h1>Add new opinion</h1>
+    <!-- <div class="form-group">
+      <label for="nick">Enter nick: </label>
+      <input
+        type="text"
+        [ngStyle]="{
+          'border-left':
+            opinion.nick == '' ? '4px solid red' : '2px solid black'
+        }"
+        class="form-control"
+        id="nick"
+        required
+        [(ngModel)]="opinion.nick"
+        name="nick"
+      />
+    </div> -->
+
+    <div class="form-group">
+      <label for="tripName">Trip name: </label>
+      <input
+        type="text"
+        [ngStyle]="{
+          'border-left':
+            opinion.tripName == '' ? '4px solid red' : '2px solid black'
+        }"
+        class="form-control"
+        id="tripName"
+        required
+        [(ngModel)]="opinion.tripName"
+        name="tripName"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="opinionText">Opinion: </label>
+      <textarea
+        type="text"
+        [ngStyle]="{
+          'border-left':
+            opinion.opinion == '' ? '4px solid red' : '2px solid black'
+        }"
+        class="form-control"
+        id="opinionText"
+        required
+        [(ngModel)]="opinion.opinion"
+        name="opinionText"
+        wrap="soft"
+        cols="26"
+        rows="7"
+      ></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="date">Enter the date of trip: </label>
+      <input
+        type="date"
+        [ngStyle]="{
+          'border-left': '2px solid black'
+        }"
+        class="form-control"
+        id="date"
+        [(ngModel)]="opinion.date"
+        name="date"
+      />
+    </div>
+
+    <button
+      [ngStyle]="{
+        'background-color': !opinionForm.form.valid
+          ? 'rgb(102, 102, 102,0.6)'
+          : 'cornflowerblue'
+      }"
+      type="submit"
+      class="btn btn-success"
+      [disabled]="!opinionForm.form.valid"
+      id="submitButton"
+    >
+      Submit
+    </button>
+  </form>
+  <div id="problemTable">
+    <h1>Errors:</h1>
+    <div [hidden]="!Errors[0]" class="error">Nick cannot be empty</div>
+    <div [hidden]="!Errors[1]" class="error">
+      Lenght of opinion should be between 50 and 500 signs
+    </div>
+    <div [hidden]="!Errors[2]" class="error">
+      This trip name does not match to any trip
+    </div>
+    <div [hidden]="!Errors[3]" class="error">You are banned</div>
+    <div [hidden]="!Errors[4]" class="error">
+      Permission denied, you are not logged
+    </div>
+    <div [hidden]="!Errors[5]" class="error">
+      Permission denied, you can add opinion only to trip on which you were
+    </div>
+    <div [hidden]="!Errors[6]" class="error">
+      Permission denied, you can add only one opinion to this trip
+    </div>
+  </div>
+</div>

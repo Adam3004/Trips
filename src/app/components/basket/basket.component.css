@@ -1,0 +1,117 @@
+.mainContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  background-color: transparent;
+}
+
+.openBusket {
+  background-image: url("https://img.icons8.com/ios/100/null/shopping-basket.png");
+  width: 70px;
+  height: 70px;
+  background-size: cover;
+  border-radius: 10px;
+  border: 0px;
+  background-color: transparent;
+}
+
+.basketContainer {
+  min-height: 190px;
+  background-color: rgb(0, 0, 0, 0.5);
+  margin-top: 10px;
+  padding: 20px 10px 10px 10px;
+}
+
+.communicate {
+  color: rgb(255, 255, 255, 0.8);
+  font-family: "Courier New", Courier, monospace;
+  text-align: center;
+  font-size: 30px;
+  margin-top: 4px;
+}
+
+.reservedTrip {
+  background-color: rgb(255, 255, 255, 0.9);
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.imgAvatar {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+}
+
+.sumOfCosts {
+  color: rgb(255, 255, 255, 0.8);
+  display: flex;
+  justify-content: center;
+  font-size: 30px;
+  margin-top: 20px;
+  width: 50%;
+  background-color: rgb(184, 186, 212);
+  border: 3px solid white;
+  min-width: 300px;
+  padding: 10px;
+}
+
+.basketItemText {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 17px;
+  text-align: center;
+}
+
+.basketItemTitle {
+  font-size: 25px;
+  text-align: center;
+}
+
+.info {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+}
+
+.leftSideContainer {
+  width: 68%;
+  min-width: 615px;
+  margin: 0px 2% 0px 2%;
+}
+
+.basketTitle {
+  color: white;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 30px;
+}
+
+.buyImg {
+  width: 100%;
+  filter: grayscale(1) invert(1);
+}
+
+.buyButton {
+  width: 50px;
+  height: 50px;
+  background-color: rgb(0, 235, 12);
+  border: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 1.5%;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.buyButton:hover {
+  background-color: rgb(138, 255, 83);
+  border: 1px solid greenyellow;
+}
+
+.buyButton:hover .buyImg {
+  filter: grayscale(1);
+}

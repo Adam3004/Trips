@@ -1,0 +1,136 @@
+<div id="mainContainer">
+  <div class="leftSide">
+    <div id="tripInfoContainer">
+      <div class="leftSideOfInfo">
+        <h1>{{ currTrip.name }}</h1>
+        <h1>Location: {{ currTrip.destination | uppercase }}</h1>
+        <p class="descOfTrip">{{ currTrip.description }}</p>
+        <p class="costOfTrip">
+          Cost:
+          {{
+            currTrip.unitPrice
+              | changeCurrency : currTrip.unitPrice : currencyService.currency
+          }}
+          {{ showValue() }}
+        </p>
+        <div class="backButton" (click)="backToAllTrips()">
+          <img
+            class="backButtonImg"
+            src="https://img.icons8.com/ios/100/null/circled-left-2.png"
+          />
+          <p class="backButtonText">Back to all trips</p>
+        </div>
+      </div>
+
+      <div class="rightSideOfInfo">
+        <div *ngIf = "canReserveTrip()" class="buttonsContainer">
+          <button
+            [hidden]="currAvailablePlaces == 0"
+            class="add button"
+            (click)="changeAvailablePlaces(false)"
+          >
+            +
+          </button>
+          <button
+            [hidden]="currTrip.maxPlaces === currAvailablePlaces"
+            class="rmove button"
+            (click)="changeAvailablePlaces(true)"
+          >
+            -
+          </button>
+        </div>
+        <div *ngIf = "canRateTrip()" class="newRatingContainer">
+          <h3 class="ratingTitle">Add new rating:</h3>
+          <div class="newRate">
+            <div class="ratingContainer">
+              <img
+                class="star1 star"
+                src="https://img.icons8.com/color/48/null/star--v1.png"
+                (click)="changeRating(1)"
+              />
+              <img
+                class="star2 star"
+                src="https://img.icons8.com/color/48/null/star--v1.png"
+                (click)="changeRating(2)"
+              />
+              <img
+                class="star3 star"
+                src="https://img.icons8.com/color/48/null/star--v1.png"
+                (click)="changeRating(3)"
+              />
+              <img
+                class="star4 star"
+                src="https://img.icons8.com/color/48/null/star--v1.png"
+                (click)="changeRating(4)"
+              />
+              <img
+                class="star5 star"
+                src="https://img.icons8.com/color/48/null/star--v1.png"
+                (click)="changeRating(5)"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="ratingInfoContainer">
+          <p class="opionsInfoText">Number of opinions: {{ opinionsNumber }}</p>
+          <p class="opionsInfoText">Average rating: {{ averageRating }}/5</p>
+        </div>
+      </div>
+    </div>
+    <section class="carouselContainer" aria-label="Newest Photos">
+      <div class="carousel" data-carousel>
+        <button
+          class="carousel-button prev"
+          data-carousel-button="prev"
+          (click)="onButtonClick(-1)"
+        >
+          <img
+            class="arrowImg"
+            src="https://img.icons8.com/ios/100/null/chevron-left.png"
+          />
+        </button>
+        <button
+          class="carousel-button next"
+          data-carousel-button="next"
+          (click)="onButtonClick(1)"
+        >
+          <img
+            class="arrowImg"
+            src="https://img.icons8.com/ios/100/null/chevron-right.png"
+          />
+        </button>
+        <ul data-slides>
+          <li [hidden]="active != 0" class="slide" data-active>
+            <img src="{{ currTrip.imgLink }}" alt="Nature Image #1" />
+          </li>
+          <li [hidden]="active != 1" class="slide" data-active>
+            <img
+              src="https://cdn.content.tuigroup.com/adamtui/2020_2/20_10/0376992c-14e8-4c57-b841-ab6700aeb358/TUR_DAL_19_F111WebOriginalCompressed.jpg?i10c=img.resize(width:1080);img.crop(width:1080,height:608)"
+              alt="Nature Image #2"
+            />
+          </li>
+          <li [hidden]="active != 2" class="slide" data-active>
+            <img
+              src="https://www.kuoni.co.uk/upload/inspiration/jade/best-holiday-destination-2.jpg"
+              alt="Nature Image #3"
+            />
+          </li>
+        </ul>
+      </div>
+    </section>
+    <div class="form">
+      <app-opinion-form [tripName]="currTrip.name"></app-opinion-form>
+    </div>
+  </div>
+  <div class="opinions">
+    <h1>Opinions about this trip:</h1>
+    <div
+      class="opinionsContainer"
+      *ngFor="let opinion of opinionsService.getOpinionsOfTrip(currTrip.name)"
+    >
+      <p class="nickField">{{ opinion.nick }}</p>
+      <p class="dateField" *ngIf="opinion.date">The trip was: {{ opinion.date }}</p>
+      <textarea rows="7" readonly>{{ opinion.opinion }}</textarea>
+    </div>
+  </div>
+</div>

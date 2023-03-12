@@ -1,0 +1,138 @@
+<div class="mainContainer">
+  <div class="locationContainer">
+    Choose locations:
+    <div
+      class="checkboxContainer"
+      *ngFor="let location of filterTrips.LocationsSet; let i = index"
+    >
+      <input
+        type="checkbox"
+        id="{{ location }}"
+        name="location"
+        value="location"
+        class="checkInput"
+        [(ngModel)]="IsLocationChosen[i]"
+        (change)="addOrRemoveLocation(i)"
+        (change)="checkRequirements()"
+        (change)="changeDate()"
+      />
+      <label for="{{ location }}" class="checkLabel">{{ location }}</label>
+    </div>
+  </div>
+  <div class="rangeContainer">
+    <label for="minPrice">Choose minimum price:</label>
+    <input
+      type="range"
+      min="{{ filterTrips.minPrice }}"
+      max="{{ filterTrips.maxPrice }}"
+      class="slider"
+      id="minPrice"
+      [(ngModel)]="currMinPrice"
+      (change)="changeCurrValue('min')"
+      (change)="changeDate()"
+    />
+    <div class="values">
+      <div>{{ filterTrips.minPrice | changeCurrency : filterTrips.minPrice : currencyService.currency }}</div>
+      <div>{{ filterTrips.maxPrice | changeCurrency : filterTrips.maxPrice : currencyService.currency}}</div>
+    </div>
+    <br>
+    <label for="maxPrice">Choose maksimum price:</label>
+    <input
+      type="range"
+      min="{{ filterTrips.minPrice }}"
+      max="{{ filterTrips.maxPrice }}"
+      class="slider"
+      id="maxPrice"
+      [(ngModel)]="currMaxPrice"
+      (change)="changeCurrValue('max')"
+      (change)="changeDate()"
+    />
+    <div class="values">
+      <div>{{ filterTrips.minPrice | changeCurrency : filterTrips.minPrice : currencyService.currency }}</div>
+      <div>{{ filterTrips.maxPrice | changeCurrency : filterTrips.maxPrice : currencyService.currency}}</div>
+    </div>
+    <br>
+    <p *ngIf="filterTrips.currMinPrice">
+      Current min price: {{ filterTrips.currMinPrice | changeCurrency : filterTrips.currMinPrice : currencyService.currency }}
+    </p>
+    <p *ngIf="filterTrips.currMaxPrice">
+      Current max price: {{ filterTrips.currMaxPrice | changeCurrency : filterTrips.currMaxPrice : currencyService.currency }}
+    </p>
+    <p *ngIf="!filterTrips.currMinPrice">
+      Current min price: {{ filterTrips.minPrice | changeCurrency : filterTrips.minPrice : currencyService.currency}}
+    </p>
+    <p *ngIf="!filterTrips.currMaxPrice">
+      Current max price: {{ filterTrips.maxPrice | changeCurrency : filterTrips.maxPrice : currencyService.currency}}
+    </p>
+  </div>
+
+  <div class="rangeContainer">
+    <label for="minRate">Choose minimum rating:</label>
+    <input
+      type="range"
+      min="0"
+      max="5"
+      value="minRate"
+      step="1"
+      class="slider"
+      id="minRate"
+      [(ngModel)]="minRate"
+      (change)="setRating()"
+    />
+    <div class="values">
+      <div>0</div>
+      <div>5</div>
+    </div>
+    <br>
+    <label for="maxRate">Choose maksimum rating:</label>
+    <input
+      type="range"
+      min="0"
+      max="5"
+      value="maxPrice"
+      step="1"
+      class="slider"
+      id="maxRate"
+      [(ngModel)]="maxRate"
+      (change)="setRating()"
+    />
+    <div class="values">
+      <div>0</div>
+      <div>5</div>
+    </div>
+    <br>
+    <p>Current min rating: {{ filterTrips.minRate }}</p>
+    <p>Current max rating: {{ filterTrips.maxRate }}</p>
+  </div>
+  <div class="dateContainer">
+    <div class="date">
+      <label for="fromDate">Start date:</label>
+      <input
+        class="dateInput"
+        type="date"
+        min="1"
+        required
+        [value]="findFromDateValue()"
+        [(ngModel)]="fromDate"
+        id="fromDate"
+        (change)="changeDate()"
+        (change)="checkRequirements()"
+      />
+    </div>
+    <br>
+    <div class="date">
+      <label for="toDate">End date:</label>
+      <input
+        class="dateInput"
+        type="date"
+        min="1"
+        required
+        [value]="findToDateValue()"
+        [(ngModel)]="toDate"
+        id="toDate"
+        (change)="changeDate()"
+        (change)="checkRequirements()"
+      />
+    </div>
+  </div>
+</div>

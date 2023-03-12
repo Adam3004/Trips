@@ -1,0 +1,99 @@
+<div
+  *ngIf="trip"
+  [ngStyle]="{
+    border:
+      prices.smallestPrice == trip.unitPrice
+        ? '3px solid red'
+        : prices.biggestPrice == trip.unitPrice
+        ? '3px solid green'
+        : '0px'
+  }"
+  class="tripContainer"
+>
+  <img
+    class="tripImg"
+    src="{{ trip.imgLink }}"
+    (click)="navigateToDetailedView(index!)"
+  />
+  <h1 class="tripName">{{ trip.name | uppercase }}</h1>
+  <div *ngIf = "canReserveTrip()" class="buttonsContainer">
+    <button
+      [hidden]="currAvailablePlaces == 0"
+      class="add button"
+      (click)="changeAvailablePlaces(false)"
+    >
+      +
+    </button>
+    <button
+      [hidden]="trip.maxPlaces === currAvailablePlaces"
+      class="rmove button"
+      (click)="changeAvailablePlaces(true)"
+    >
+      -
+    </button>
+  </div>
+  <h3>Destination: {{ trip.destination | uppercase }}</h3>
+  <div class="valueContainer">
+    <p class="price">
+      {{
+        trip.unitPrice
+          | changeCurrency : trip.unitPrice : currencyService.currency
+      }}
+    </p>
+    <button
+      [ngStyle]="{
+        'background-color':
+          currencyService.currency === 'zl' ? 'rgb(133, 255, 149)' : 'white'
+      }"
+      class="valueButton"
+      (click)="changeCurrency('zl')"
+    >
+      zl
+    </button>
+    <button
+      [ngStyle]="{
+        'background-color':
+          currencyService.currency === 'euro' ? 'rgb(133, 255, 149)' : 'white'
+      }"
+      class="valueButton"
+      (click)="changeCurrency('euro')"
+    >
+      €
+    </button>
+    <button
+      [ngStyle]="{
+        'background-color':
+          currencyService.currency === 'dolar' ? 'rgb(133, 255, 149)' : 'white'
+      }"
+      class="valueButton"
+      (click)="changeCurrency('dolar')"
+    >
+      $
+    </button>
+  </div>
+  <p class="dateFrom">From: {{ trip.startDate }}</p>
+  <p class="dateTo">To: {{ trip.endDate }}</p>
+  <p class="desc">{{ trip.description }}</p>
+  <p
+    class="places"
+    *ngIf="currAvailablePlaces || currAvailablePlaces == 0"
+    [ngStyle]="{ color: currAvailablePlaces > 3 ? 'black' : 'red' }"
+  >
+    Places left: {{ currAvailablePlaces }}
+  </p>
+  <p>Average rating: {{ averageRating }}</p>
+  <p
+    *ngIf="currAvailablePlaces || currAvailablePlaces == 0"
+    [ngStyle]="{
+      color:
+        currAvailablePlaces > 3
+          ? 'black'
+          : currAvailablePlaces > 0
+          ? 'red'
+          : 'gray',
+      border: currAvailablePlaces > 0 ? '0px' : '2px solid gray'
+    }"
+  >
+    {{ changeCommunicate() }}
+  </p>
+</div>

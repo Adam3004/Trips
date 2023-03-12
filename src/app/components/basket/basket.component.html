@@ -1,0 +1,50 @@
+<div class="mainContainer">
+  <div class="leftSideContainer">
+    <h1 class="basketTitle">Your trips in basket:</h1>
+    <div class="basketContainer">
+      <p
+        *ngIf="
+          !basketService.ReservedTrips ||
+          basketService.ReservedTrips.length == 0
+        "
+        class="communicate"
+      >
+        Basket is empty
+      </p>
+      <div *ngIf="basketService.ReservedTrips" class="reservedTripsContainer">
+        <div
+          class="reservedTrip"
+          *ngFor="let trip of basketService.ReservedTrips"
+        >
+          <img class="imgAvatar" src="{{ trip.imgLink }}" />
+          <h1 class="basketItemTitle">{{ trip.tripName }}</h1>
+          <p class="basketItemText">
+            Cost:
+            {{
+              trip.price * trip.amount
+                | changeCurrency
+                  : trip.price * trip.amount
+                  : currencyService.currency
+            }} {{ showValue() }}
+          </p>
+          <p class="basketItemText">Amount: {{ trip.amount }}</p>
+          <button class="buyButton" (click)="buyTrip(trip)">
+            <img class="buyImg" src="https://img.icons8.com/ios/100/null/buy--v1.png" />
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="info">
+    <div *ngIf="basketService.ReservedTrips.length > 0" class="sumOfCosts">
+      Sum of costs:
+      {{
+        basketService.sumOfPrices
+          | changeCurrency
+            : basketService.sumOfPrices
+            : currencyService.currency
+      }}
+      {{ showValue() }}
+    </div>
+  </div>
+</div>

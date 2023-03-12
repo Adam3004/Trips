@@ -1,0 +1,72 @@
+.boughtTrip {
+  width: 360px;
+  min-width: 360px;
+  background-color: beige;
+  padding: 20px 20px 20px 20px;
+  border-radius: 14px;
+  margin: 10px;
+}
+
+.tripTitle {
+  margin-top: 0px;
+}
+
+.boughtTrip > * {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.active {
+  padding: 2px;
+  background-color: rgb(34, 202, 0);
+  border: 2px solid rgb(34, 202, 0);
+  color: white;
+}
+
+.waiting {
+  padding: 2px;
+  background-color: rgb(255, 0, 0);
+  border: 2px solid rgb(255, 0, 0);
+  color: white;
+}
+
+.ended {
+  padding: 2px;
+  background-color: rgb(83, 83, 83);
+  border: 2px solid rgb(83, 83, 83);
+  color: white;
+}
+
+.boughtTripsContainer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.filters{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100px;
+    background-color: rgb(184, 186, 212);
+    padding: 10px;
+}
+
+.filters>label{
+    width: 70px;
+    text-align: center;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.filtersButton{
+    padding: 5px;
+    background-color: white;
+    color:rgb(86, 89, 129);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 18px;
+    border: 0px;
+    margin-bottom: 10px;
+}
+
+.filtersContainer{
+    margin-left: 10px;
+}

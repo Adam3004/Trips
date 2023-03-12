@@ -1,0 +1,26 @@
+<div id="mainContainer">
+  <div id="test">Welcome on our website</div>
+  <div id="leftContainer">
+    <div id="cardContainer">
+      <div id="cardBackground">
+        <h1 class="cardTitle">BEST TRAVEL AGENCY</h1>
+        <p class="cardInfo">Number: 123 123 123</p>
+        <p class="cardInfo">Email: travelAgency@agh.edu.pl</p>
+        <p class="cardInfo"><a href="fb">Facebook: Travel Agency</a></p>
+        <p class="cardInfo"><a href="ig">Instagram: TravelAgency123</a></p>
+      </div>
+    </div>
+    <iframe
+      [src]="mapUrl | safe"
+      width="100%"
+      class="max-width-800 map"
+      height="500"
+      frameborder="0"
+      allowfullscreen
+      webkitallowfullscreen
+      mozallowfullscreen
+    >
+    </iframe>
+  </div>
+  <div id="tripContainer"></div>
+</div>

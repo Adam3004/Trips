@@ -1,0 +1,52 @@
+<div id="mainContainer">
+  <div class="persistanceSettings">
+    <h2>Set persistance</h2>
+    <button class="persistanceButton" (click)="change(options[0])">
+      LOCAL
+    </button>
+    <button class="persistanceButton" (click)="change(options[1])">
+      SESSION
+    </button>
+    <button class="persistanceButton" (click)="change(options[2])">NONE</button>
+  </div>
+
+  <div class="usersContainer">
+    <h1 class="usersTitle">Users:</h1>
+    <div class="listContainer">
+      <div class="userContainer" *ngFor="let user of userService.Users">
+        <h3>{{ user.email }}</h3>
+        <p class="rolesText">Roles: {{ formatRolesIntoString(user.roles) }}</p>
+        <button
+          [ngStyle]="{
+            'background-color': haveRole(0, user.roles) ? 'red' : '#53f753'
+          }"
+          class="button"
+          (click)="addOrRemoveRoleOperation(user, 0)"
+        >
+          {{ addOrRemoveText(0, user.roles) }}Role Customer
+        </button>
+        <button
+          [ngStyle]="{
+            'background-color': haveRole(1, user.roles) ? 'red' : '#53f753'
+          }"
+          class="button"
+          (click)="addOrRemoveRoleOperation(user, 1)"
+        >
+          {{ addOrRemoveText(1, user.roles) }}Role Manager
+        </button>
+        <button
+          [ngStyle]="{
+            'background-color': haveRole(2, user.roles) ? 'red' : '#53f753'
+          }"
+          class="button"
+          (click)="addOrRemoveRoleOperation(user, 2)"
+        >
+          {{ addOrRemoveText(2, user.roles) }}Role Aministrator
+        </button>
+        <button class="button banButton" (click)="banOrUnbanUser(user)">
+          {{ (user.isBlocked ? "Unban" : "Ban") | uppercase }}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

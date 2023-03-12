@@ -1,0 +1,106 @@
+<main>
+  <div id="mainContainer">
+    <div id="cos">
+      <div class="menuContainer">
+        <div class="menuButton" (click)="openMenu()">
+          <p class="menuText">{{ "menu" | uppercase }}</p>
+          <img
+            class="menuArrow"
+            [ngStyle]="{
+              transform: menuIsOpen ? 'rotate(+90deg)' : 'rotate(-90deg)'
+            }"
+            src="https://img.icons8.com/ios/100/null/chevron-left.png"
+          />
+        </div>
+        <ul [hidden]="!menuIsOpen" id="menuOptionsContainer">
+          <li (click)="navigateTo(locations[0])">home</li>
+          <li (click)="navigateTo(locations[1])">trips</li>
+          <li
+            *ngIf="isVisible(locations[2])"
+            (click)="navigateTo(locations[2])"
+          >
+            manage trips
+          </li>
+          <li *ngIf="isVisible(locations[3])" (click)="navigateTo(locations[3])">basket</li>
+          <li *ngIf="isVisible(locations[4])" (click)="navigateTo(locations[4])">your trips</li>
+          <li
+            *ngIf="isVisible(locations[5])"
+            (click)="navigateTo(locations[5])"
+          >
+            settings
+          </li>
+        </ul>
+      </div>
+      <div
+        [ngClass]="
+          boughtTripsService.isSomeTripCommingSoon()
+            ? 'commingTrip'
+            : 'notCommingTrip'
+        "
+        id="notificationContainer"
+      >
+        <p
+          [hidden]="boughtTripsService.isSomeTripCommingSoon()"
+          class="notificationText"
+        >
+          You do not have any trips starting in 2 weeks
+        </p>
+        <p
+          [hidden]="!boughtTripsService.isSomeTripCommingSoon()"
+          class="notificationText"
+        >
+          You have a trip starting soon!
+        </p>
+      </div>
+      <div id="basketContainer">
+        <h3 class="basketTitle">Basket details:</h3>
+        <p class="pText">
+          <!-- Niestety nie znalazłem przyczyny dlaczego pokazuje cały czas 0. W componencie basket jest zastosowane to samo rozwiązanie i wszystko działa -->
+          Amount of trips: {{ basketService.numberOfReservations }}
+        </p>
+        <p class="pText">
+          Sum of costs:
+          {{
+            basketService.sumOfPrices
+              | changeCurrency
+                : basketService.sumOfPrices
+                : currencyService.currency
+          }}
+          {{ showValue() }}
+        </p>
+      </div>
+      <div id="userInfoContainer">
+        <h4 *ngIf="authService.userData$ != null">
+          user email: {{ authService.getUser().email }}
+        </h4>
+        <button
+          *ngIf="authService.getUser() != null"
+          class="authButton"
+          id="logoutButton"
+          (click)="logout()"
+        >
+          Logout
+        </button>
+        <button
+          *ngIf="authService.getUser() == null"
+          class="authButton"
+          id="loginButton"
+          routerLink="/login"
+        >
+          Login
+        </button>
+        <button
+          *ngIf="authService.getUser() == null"
+          class="authButton"
+          routerLink="/register"
+        >
+          Register
+        </button>
+      </div>
+    </div>
+  </div>
+</main>
+
+
+
+

@@ -1,0 +1,35 @@
+<div id="mainContainer">
+  <form (ngSubmit)="onSubmit()" #loginForm="ngForm" class="window">
+    <div class="inputContainer">
+      <label for="email">Email: </label>
+      <input
+        [ngStyle]="{ border: wrongMail ? '2px solid red' : '2px solid black' }"
+        type="email"
+        id="email"
+        name="email"
+        [(ngModel)]="currLogin"
+        required
+      />
+    </div>
+    <div class="inputContainer">
+      <label for="password">Password: </label>
+      <input
+        [ngStyle]="{
+          border: wrongPassword ? '2px solid red' : '2px solid black'
+        }"
+        type="password"
+        id="password"
+        name="password"
+        [(ngModel)]="currPassword"
+        required
+      />
+    </div>
+    <button
+      class="submitButton"
+      type="submit"
+      [disabled]="!loginForm.form.valid"
+    >
+      Login
+    </button>
+  </form>
+</div>

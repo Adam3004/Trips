@@ -1,0 +1,17 @@
+<header>
+    <button class="addTripButton" [routerLink]="'/add'">Add new trip
+        <img src="https://img.icons8.com/sf-black/64/FFFFFF/plus-math.png" class="plus"/>
+    </button>
+</header>
+<div id="mainContainer">
+    <div id="tripsContainer" *ngFor="let trip of Trips.tripsFilter.TripsToDisplay; let i = index">
+      <app-trip-window
+        [trip]="trip"
+        [biggestOrLowest]="isBiggestOrLowest(trip.unitPrice)"
+        [index] = "i"
+        (bookedPlaces) = "getOutput($event, i)"
+      ></app-trip-window>
+      <button class="actoionButton editButton" [routerLink]="['/edit', trip.key]">Edit</button>
+      <button class="actoionButton deleteButton" (click)="deleteTrip(trip, i)">Delete</button>
+    </div>
+  </div>

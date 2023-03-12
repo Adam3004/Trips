@@ -1,0 +1,152 @@
+<div id="mainContainer">
+  <form (ngSubmit)="onSubmit()" #tripForm="ngForm" id="from">
+    <h1>Edit trip</h1>
+    <div class="form-group">
+      <label for="name">Enter name: </label>
+      <input
+        type="text"
+        [ngStyle]="{
+          'border-left': trip.name == '' ? '4px solid red' : '2px solid black'
+        }"
+        class="form-control"
+        id="name"
+        required
+        [(ngModel)]="trip.name"
+        name="name"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="destination">Destination: </label>
+      <input
+        type="text"
+        [ngStyle]="{
+          'border-left':
+            trip.destination == '' ? '4px solid red' : '2px solid black'
+        }"
+        class="form-control"
+        id="destination"
+        required
+        [(ngModel)]="trip.destination"
+        name="destination"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="startDate">When event is starting: </label>
+      <input
+        type="date"
+        [ngStyle]="{
+          'border-left':
+            trip.startDate == null ? '4px solid red' : '2px solid black'
+        }"
+        class="form-control"
+        id="startDate"
+        required
+        [(ngModel)]="trip.startDate"
+        name="startDate"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="endDate">Enter the end date: </label>
+      <input
+        type="date"
+        [ngStyle]="{
+          'border-left':
+            trip.endDate == null ? '4px solid red' : '2px solid black'
+        }"
+        class="form-control"
+        id="endDate"
+        required
+        [(ngModel)]="trip.endDate"
+        name="endDate"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="unitPrice">How much it costs (zl):</label>
+      <input
+        type="number"
+        [ngStyle]="{
+          'border-left':
+            trip.unitPrice == null ? '4px solid red' : '2px solid black'
+        }"
+        min="1"
+        class="form-control"
+        id="unitPrice"
+        required
+        [(ngModel)]="trip.unitPrice"
+        name="unitPrice"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="maxPlaces">How many places this trip has: </label>
+      <input
+        type="number"
+        [ngStyle]="{
+          'border-left':
+            trip.maxPlaces == null ? '4px solid red' : '2px solid black'
+        }"
+        min="1"
+        class="form-control"
+        id="maxPlaces"
+        required
+        [(ngModel)]="trip.maxPlaces"
+        name="maxPlaces"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="description">Enter description</label>
+      <input
+        type="text"
+        [ngStyle]="{
+          'border-left':
+            trip.description == '' ? '4px solid red' : '2px solid black'
+        }"
+        class="form-control"
+        id="description"
+        required
+        [(ngModel)]="trip.description"
+        name="description"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="imgLink">Link some image: </label>
+      <input
+        type="text"
+        [ngStyle]="{
+          'border-left':
+            trip.imgLink == '' ? '4px solid red' : '2px solid black'
+        }"
+        class="form-control"
+        id="imgLink"
+        required
+        [(ngModel)]="trip.imgLink"
+        name="imgLink"
+      />
+    </div>
+    <button
+      [ngStyle]="{
+        'background-color': !tripForm.form.valid
+          ? 'rgb(102, 102, 102,0.6)'
+          : 'cornflowerblue'
+      }"
+      type="submit"
+      class="btn btn-success"
+      [disabled]="!tripForm.form.valid"
+      id="submitButton"
+    >
+      Submit
+    </button>
+    <div [hidden]="datesGood != 2" class="messageContainer">
+      End date have to be later than start date
+    </div>
+    <div [hidden]="datesGood != 3" class="messageContainer">
+      Start date must be in the future
+    </div>
+  </form>
+</div>

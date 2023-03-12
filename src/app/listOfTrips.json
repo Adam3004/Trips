@@ -1,0 +1,102 @@
+[
+  {
+    "name": "Trip to paris",
+    "destination": "Paris",
+    "startDate": "2022-03-20",
+    "endDate": "2023-03-27",
+    "unitPrice": 4000,
+    "maxPlaces": 34,
+    "description": "Trip to paris. We will visit famous monuments",
+    "imgLink": "https://photo-cdn2.icons8.com/orBqvtvoITT2gH5KKZCOpSRTP4Ni6hy9vuqyVQmbtDc/rs:fit:1606:1072/czM6Ly9pY29uczgu/bW9vc2UtcHJvZC5l/eHRlcm5hbC9hMmE0/Mi9hNThiMTFhZmU4/NWQ0YjQ3ODc5Yjc1/N2QyYzhiYTY5OS5q/cGc.jpg"
+  },
+  {
+    "name": "Capital of Germany",
+    "destination": "Berlin",
+    "startDate": "2022-04-15",
+    "endDate": "2022-04-25",
+    "unitPrice": 5200,
+    "maxPlaces": 55,
+    "description": "You know how beautiful Berlin is? Let's check it!",
+    "imgLink": "https://photo-cdn2.icons8.com/jeNEYm2rJUpDTTIwUf7kRdJKcuCZUEaPEeNYtsgI5Pk/rs:fit:1429:1072/czM6Ly9pY29uczgu/bW9vc2UtcHJvZC5l/eHRlcm5hbC9hMmE0/Mi9lN2QxMzFjODM0/YTk0ZjliYTY3ZjE2/NjhmZGM3N2I2YS5q/cGc.jpg"
+  },
+  {
+    "name": "Nautral trip",
+    "destination": "Asia",
+    "startDate": "2023-07-30",
+    "endDate": "2023-07-11",
+    "unitPrice": 4900,
+    "maxPlaces": 25,
+    "description": "If u like nature this trip is for you",
+    "imgLink": "https://photo-cdn2.icons8.com/xIg7QjZCWHWrtRiySBXX0kVWBYUQRrFvrzIdLn4cWS4/rs:fit:1606:1072/czM6Ly9pY29uczgu/bW9vc2UtcHJvZC5l/eHRlcm5hbC9hMmE0/Mi9mODZmZjFmM2I1/NjQ0YTQ3YmZkOWZh/MjMzYzRjYzc3Zi5q/cGc.jpg"
+  },
+  {
+    "name": "Capital of England",
+    "destination": "London",
+    "startDate": "2023-01-10",
+    "endDate": "2023-01-14",
+    "unitPrice": 1900,
+    "maxPlaces": 18,
+    "description": "Fast cheap trip for students",
+    "imgLink": "https://photo-cdn2.icons8.com/kBjPLIg15FkM9RZZvkzEP6wDLilZcp3hu2pIcwQU4UY/rs:fit:1678:1072/czM6Ly9pY29uczgu/bW9vc2UtcHJvZC5l/eHRlcm5hbC9hMmE0/Mi8wNTFkNWE2Njc2/Mzc0YjBkOTQwNjc1/ZGIzZDFjM2U2My5q/cGc.jpg"
+  },
+  {
+    "name": "Wild trip",
+    "destination": "Africa",
+    "startDate": "2023-07-25",
+    "endDate": "2023-08-24",
+    "unitPrice": 15000,
+    "maxPlaces": 90,
+    "description": "Let's see wild animals",
+    "imgLink": "https://photo-cdn2.icons8.com/e9RmIiLWkomu77grlY-1gwiC5SpkYY8tMbJ-vFleO9s/rs:fit:1608:1072/czM6Ly9pY29uczgu/bW9vc2UtcHJvZC5l/eHRlcm5hbC9hMmE0/Mi9mZGY4MzZjZGY1/MjI0ZjVhOWYwNTU5/MjE3MWI5M2E5YS5q/cGc.jpg"
+  },
+  {
+    "name": "Long journey",
+    "destination": "Istambul",
+    "startDate": "2023-10-01",
+    "endDate": "2023-10-15",
+    "unitPrice": 10000,
+    "maxPlaces": 150,
+    "description": "Not common trip destination, are you in?",
+    "imgLink": "https://photo-cdn2.icons8.com/MO_jChN142xP9WOMiU8pFqqAdInk1rp9GVkKNe9nCBg/rs:fit:1608:1072/czM6Ly9pY29uczgu/bW9vc2UtcHJvZC5l/eHRlcm5hbC9hMmE0/Mi8zNzZmYjk2Y2E2/OTQ0YjQ2YTNiOTA5/ZmFlY2E4ZjY5Ni5q/cGc.jpg"
+  },
+  {
+    "name": "Skiing trip",
+    "destination": "Karpun",
+    "startDate": "2023-12-01",
+    "endDate": "2023-12-14",
+    "unitPrice": 145000,
+    "maxPlaces": 110,
+    "description": "If u like skiing its trip for you",
+    "imgLink": "https://photo-cdn2.icons8.com/JK9c8NDhiM-YZ7XvxJQErL2wz4TfXnodKfnz4n1rK0c/rs:fit:1608:1072/czM6Ly9pY29uczgu/bW9vc2UtcHJvZC5l/eHRlcm5hbC9hMmE0/Mi8xNGQzNDQxMDhl/YTQ0NmZmYjhhZjcy/YzhiNmQxMGEwOS5q/cGc.jpg"
+  },
+  {
+    "name": "Beautiful trip",
+    "destination": "Sidney",
+    "startDate": "2024-02-02",
+    "endDate": "2024-02-18",
+    "unitPrice": 9500,
+    "maxPlaces": 40,
+    "description": "Interesting trip for businessmen",
+    "imgLink": "https://photo-cdn2.icons8.com/CASijqmgi0WNsVTTCBUetWUtR289C332NmVHAbe7lIw/rs:fit:1608:1072/czM6Ly9pY29uczgu/bW9vc2UtcHJvZC5l/eHRlcm5hbC9hMmE0/Mi81YzlmMjJiYzAz/M2E0MDU4ODRhZTg2/MTcyMjM2MWM4Yy5q/cGc.jpg"
+  },
+  {
+    "name": "Journey around America",
+    "destination": "America",
+    "startDate": "2023-07-02",
+    "endDate": "2023-07-25",
+    "unitPrice": 28000,
+    "maxPlaces": 66,
+    "description": "We will visit a lot of cities in America",
+    "imgLink": "https://photo-cdn2.icons8.com/pm51mEK0nz--Cg_839TtTIh9hsg92bsyMewpAiX4n9E/rs:fit:1608:1072/czM6Ly9pY29uczgu/bW9vc2UtcHJvZC5l/eHRlcm5hbC9hMmE0/Mi80YzU5OTRmMjc4/MDY0ZTk0OTJlODg1/NTY0ZDE0NmQyOC5q/cGc.jpg"
+  },
+  {
+    "name": "Trip to Thailand",
+    "destination": "Thailand",
+    "startDate": "2023-08-23",
+    "endDate": "2023-09-04",
+    "unitPrice": 19000,
+    "maxPlaces": 110,
+    "description": "You want to rest on the beach? It's trip for you",
+    "imgLink": "https://photo-cdn2.icons8.com/coR8nSy1hdfQuMuDyw3OvpDJjmcEPBSmuRC2LAveQCk/rs:fit:1608:1072/czM6Ly9pY29uczgu/bW9vc2UtcHJvZC5l/eHRlcm5hbC9hMmE0/Mi81MWFkNzg1MjA1/NWI0MzRkYTM1YmQy/OWZlOTkxODVmNi5q/cGc.jpg"
+  }
+]

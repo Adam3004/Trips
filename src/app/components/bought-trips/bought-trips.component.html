@@ -1,0 +1,59 @@
+<div class="mainContainer">
+  <div class="filtersContainer">
+    <button class="filtersButton" (click)="changeFilterWindowVisibility()">
+      filters
+    </button>
+    <div *ngIf="filterWindowVisible" class="filters">
+      <input
+        id="check1"
+        name="check1"
+        type="checkbox"
+        [(ngModel)]="Filters[0]"
+      />
+      <label for="check1" class="waiting">WAITING</label>
+      <input
+        id="check2"
+        name="check2"
+        type="checkbox"
+        [(ngModel)]="Filters[1]"
+      />
+      <label for="check2" class="active">ACTIVE</label>
+      <input
+        id="check3"
+        name="check3"
+        type="checkbox"
+        [(ngModel)]="Filters[2]"
+      />
+      <label for="check3" class="ended">ENDED</label>
+    </div>
+  </div>
+  <div class="boughtTripsContainer">
+    <div class="boughtTrip" *ngFor="let trip of getFilteredTrips()">
+      <h1 class="tripTitle">{{ trip.name }}</h1>
+      <h1>Location: {{ trip.destination | uppercase }}</h1>
+      <p class="numberOfTickets">Tickets: {{ trip.amount }}</p>
+      <p class="dateFrom">From: {{ trip.startDate }}</p>
+      <p class="dateTo">To: {{ trip.endDate }}</p>
+      <p class="costOfTrip">
+        Cost:
+        {{
+          trip.unitPrice
+            | changeCurrency : trip.unitPrice : currencyService.currency
+        }}
+        {{ showValue() }}
+      </p>
+      <p>Purchase date: {{ trip.buyDate }}</p>
+      <p
+        [ngClass]="
+          checkStatus(trip) == 'waiting'
+            ? 'waiting'
+            : checkStatus(trip) == 'active'
+            ? 'active'
+            : 'ended'
+        "
+      >
+        {{ checkStatus(trip) | uppercase }}
+      </p>
+    </div>
+  </div>
+</div>
